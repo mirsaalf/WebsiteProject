@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebsiteProject.Models;
 
 namespace WebsiteProject.Data
 {
@@ -8,6 +9,9 @@ namespace WebsiteProject.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
+
+        public DbSet<Services> Service { get; set; }
     }
 }
