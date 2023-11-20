@@ -47,3 +47,40 @@ img {
 img > connect {
     width: 10%;
 }
+
+.about {
+    margin-left: 80px;
+    font-size: 20px;
+    width: 50%;
+}
+
+.contact {
+    border: 3px solid black;
+    border-radius: 5%;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.contact:hover {
+    background-color: lightgray;
+}
+
+.send-to-about {
+    font-size: 40px;
+    text-decoration: none;
+}
+
+form{
+    border: 3px solid black;
+    padding: 40px;
+    width: 50%;
+}
+
+label {
+    font-size: 20px;
+}
+
+input{
+
+}
