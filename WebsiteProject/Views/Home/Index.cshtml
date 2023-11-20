@@ -1,63 +1,96 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
+<html>
+    <body>
+        <h1 class="display-1">Welcome</h1>
+        <h1 class="display-3">to Warren G Electricity!</h1>
 
-<h1 class="display-1">Welcome</h1>
-<h1 class="display-3">to Warren G Electricity!</h1>
-
-<h1 class="display-4">Residential | Commercial | Industrial</h1>
-<h2 class="display-5">Electrical Repairs | Remodels & Retrofits | New Construction</h2>
-@*Add link to contact page when button is pressed*@
-<button type="button" class="btn btn-outline-primary btn-lg">Schedule a Consultation</button>
-
-<h3 class="display-5">Wire you waiting?</h3>
-@*add link to "click here" to about page*@
-<h3 class="display-6">Click here to learn more about us</h3>
-
-<h3 class="display-5">What our cliets are saying...</h3>
-<p>(Our personal high fives)</p>
-@*// add customer reviews with stars*@
-
-<h4 class="display-5">Electrical Experts in Washington</h4>
-<p>Our business is built on efficient, effective,
-    and affordable service. We are committed to providing excellent
-    electrical services to our clients, whether residential, commercial, 
-    or industrial.
-</p>
-<p>We cover everything from new wiring to electrical maintenance
-    and troubleshooting. Whatever you need, we have a solution at a 
-    price you'll love.
-</p>
-
-<h4 class="display-5">Areas We Serve -</h4>
-<ul>
-    <li>Tacoma</li>
-    <li>Federal Way</li>
-    <li>Fife</li>
-    <li>Seattle</li>
-    <li>Edgewood</li>
-    <li>Milton</li>
-    <li>Puyallup</li>
-    <li>Olympia</li>
-</ul>
-<p>... and surrounding areas in Western Washington</p>
-
-<div class="container text-center">
-    <div class="row align-items-start">
-        <div class="col">
-            <p>Bonded | Insured | Licensed</p>
-            <p>FULLEEI111MK | FULLEEI222MO</p>
+        <div id="types">
+            <h1 class="display-4">Residential | Commercial | Industrial</h1>
+            <h2 class="display-5">Electrical Repairs | Remodels & Retrofits | New Construction</h2>
+            @*Add link to contact page when button is pressed*@
+            <button type="button" class="btn btn-outline-primary btn-lg">Schedule a Consultation</button>
         </div>
-        <div class="col">
-            <p>Business Hours</p>
-            <p>Mon-Fri | 7am - 5pm</p>
-            <p>Sat & Sun | Appointment Only</p>
-            <p>Phone: (253) 555-1234</p>
-        </div>
-        <div class="col">
-            <p>Connect With Us!</p>
-            @*add link to facebook and twitter pages*@
+
+        <h3 class="display-5">Wire you waiting?</h3>
+        <h3 class="display-6"><a href="/about.cshtml">Click here</a> to learn more about us</h3>
+
+        <h3 class="display-5">What our clients are saying...</h3>
+        <p>(Our personal high fives)</p>
+    <div id="col-1">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <img src="/images/stars.jpg" />
+                    <p class="customer">Christina Yang</p>
+                    <p class="review">Warren and his team did an amazing job on my house! Their work was fast and efficient, while the 
+                        wiring is incredibly clean looking. Will definitely be using them for any future projects!
+                    </p>
+                </div>
+                <div class="col">
+                    <img src="/images/stars.jpg" />
+                    <p class="customer">Derek Shepherd</p>
+                    <p class="review">We recently got a new building for work and needed some electrical work done quickly. Warren and his team
+                        did not hesitate to help us in time and the pricing couldn't be beat. If you want good work done at a reasonable price, 
+                        go with these guys! 
+                    </p>
+                </div>
+                <div class="col">
+                    <img src="/images/stars.jpg" />
+                    <p class="customer">Meredith Grey</p>
+                    <p class="review">Warren and his guys were so nice and explained everything in a way that I was able to understand. 
+                        Everything was done  in great time and I'll sleep better at night knowing we have all new electrical fittings and 
+                        didn't have to break the bank to do so.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
+
+        <h4 id="experts" class="display-5">Electrical Experts in Washington</h4>
+        <p class="motto">Our business is built on efficient, effective,
+            and affordable service. We are committed to providing excellent
+            electrical services to our clients, whether residential, commercial, 
+            or industrial.
+        </p>
+        <p class="motto">We cover everything from new wiring to electrical maintenance
+            and troubleshooting. Whatever you need, we have a solution at a 
+            price you'll love.
+        </p>
+
+        <h4 class="display-5">Where We Wire -</h4>
+        <ul class="areas">
+            <li>Tacoma</li>
+            <li>Federal Way</li>
+            <li>Fife</li>
+            <li>Seattle</li>
+            <li>Edgewood</li>
+            <li>Milton</li>
+            <li>Puyallup</li>
+            <li>Olympia</li>
+        </ul>
+        <p>... and surrounding areas in Western Washington</p>
+
+        <div class="container text-center">
+            <div class="row align-items-start">
+                <div class="col">
+                    <p>Bonded | Insured | Licensed</p>
+                    <p>FULLEEI111MK | FULLEEI222MO</p>
+                </div>
+                <div class="col">
+                    <p>Business Hours</p>
+                    <p>Mon-Fri | 7am - 5pm</p>
+                    <p>Sat & Sun | Appointment Only</p>
+                    <p>Phone: (253) 555-1234</p>
+                </div>
+                <div class="col">
+                    <p>Connect With Us!</p>
+                    <img class="connect" src="/images/connect.jpg" />
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
