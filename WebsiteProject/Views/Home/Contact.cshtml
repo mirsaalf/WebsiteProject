@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<html>
+    <body>
+        <h1 class="display-2">Contact Us!</h1>
+        <form action="/action_page.php">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname"><br />
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname"><br>
+            <label for="date">Select a Date + Time:</label><br />
+            <input type="datetime-local" id="datetime" /><br />
+            <label for="number">Enter Your Phone Number:</label><br />
+            <input type="number" id="number" /><br />
+            <label for="email">Enter Your Email:</label><br />
+            <input type="email" id="email" /><br />
+            <label for="message">Please tell us about the work you need done: </label><br />
+            <textarea id="message" rows="30" cols="70"></textarea><br />
+            <input type="submit" value="Submit">
+        </form>
+        <br /><br /><br />
+
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <p>Bonded | Insured | Licensed</p>
+                <p>FULLEEI111MK | FULLEEI222MO</p>
+            </div>
+            <div class="col">
+                <p>Business Hours</p>
+                <p>Mon-Fri | 7am - 5pm</p>
+                <p>Sat & Sun | Appointment Only</p>
+                <p>Phone: (253) 555-1234</p>
+            </div>
+            <div class="col">
+                <p>Connect With Us!</p>
+                <img class="connect" src="/images/connect.jpg" />
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
