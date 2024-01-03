@@ -14,13 +14,26 @@ namespace WebsiteProject.Models
         public int ServiceID { get; set; }
 
         /// <summary>
-        /// Title of the services being offered        /// </summary>
-        public string Title { get; set; }
+        /// Title of the services being offered
+        /// </summary>
+
+        [Display(Name = "Service Name")]
+        [StringLength(50)]
+        [Required(ErrorMessage = "Field is required")]
+        public string ServiceName { get; set; }
 
         /// <summary>
         /// Price of the service 
         /// </summary>
         [Range(0, double.MaxValue)]
-        public double Price { get; set; }
+        [Display(Name = "Price")]
+        [Required(ErrorMessage = "Field is required")]
+        public double ServicePrice { get; set; }
+
+        [Display(Name = "Description")]
+        [StringLength(300)]
+        [Required(ErrorMessage = "Field is required")]
+
+        public string ServiceDescription { get; set; }
     }
 }

@@ -12,6 +12,7 @@ namespace WebsiteProject.Data
 
         }
 
-        public DbSet<Services> Service { get; set; }
+        public DbSet<WebsiteProject.Models.Services> Services { get; set; }
+        public DbSet<WebsiteProject.Models.Clients> Clients { get; set; }
     }
 }
