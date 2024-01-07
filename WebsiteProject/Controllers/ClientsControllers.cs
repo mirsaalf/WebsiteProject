@@ -10,12 +10,12 @@ using WebsiteProject.Models;
 
 namespace WebsiteProject.Controllers
 {
-    public class ClientControllers : Controller
+    public class ClientsControllers : Controller
     {
 
         private readonly ApplicationDbContext _context;
 
-        public ClientControllers(ApplicationDbContext context)
+        public ClientsControllers(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -24,12 +24,12 @@ namespace WebsiteProject.Controllers
         {
             return _context.Clients != null ?
                 View(await _context.Clients.ToListAsync()) :
-                Problem("Entity set 'ApplicationDbContext.Client is null");
+                Problem("Entity set 'ApplicationDbContext.Clients' is null");
         }
 
         public async Task<IActionResult> Information(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Clients == null)
             {
                 return NotFound();
             }
