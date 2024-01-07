@@ -43,6 +43,11 @@ namespace WebsiteProject.Controllers
             return View(services);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
 
