@@ -60,7 +60,7 @@ else
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
                     <td>
-                        <a class="btn btn-warning" asp-action="Edit" asp-route="@item.ClientID">Edit</a>
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ClientID">Edit</a>
                         <a class="btn btn-info" asp-action="Information" asp-route-id="@item.ClientID">Information</a>
                         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ClientID">Delete</a>
                     </td>
