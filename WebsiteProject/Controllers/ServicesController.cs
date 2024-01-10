@@ -19,6 +19,7 @@ namespace WebsiteProject.Controllers
             _context = context;
         }
 
+        //GET: Services
         public async Task<IActionResult> Index()
         {
             return _context.Services != null ?
@@ -26,6 +27,7 @@ namespace WebsiteProject.Controllers
                 Problem("Entity set 'ApplicationDbContext.Services' is null");
         }
 
+        // GET: Services/Information
         public async Task<IActionResult> Information(int? id)
         {
             if (id == null || _context.Services == null)
@@ -43,6 +45,8 @@ namespace WebsiteProject.Controllers
             return View(services);
         }
 
+
+        // GET: Services/Create
         public IActionResult Create()
         {
             return View();
@@ -51,9 +55,12 @@ namespace WebsiteProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
+        // POST: Services/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         public async Task<IActionResult> Create([Bind("ServiceID,ServiceName,ServicePrice,ServiceDescription")] Services services)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.Add(services);
                 await _context.SaveChangesAsync();
@@ -65,6 +72,7 @@ namespace WebsiteProject.Controllers
             return View(services);
         }
 
+        //GET: Services/Edit
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Services == null)
@@ -84,6 +92,9 @@ namespace WebsiteProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
+        // POST: Services/Edit
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         public async Task<IActionResult> Edit(int id, [Bind("ServiceID,ServiceName,ServicePrice,ServiceDescription")] Services services)
         {
             if (id != services.ServiceID)
@@ -103,6 +114,7 @@ namespace WebsiteProject.Controllers
             return View(services);
         }
 
+        // GET: Services/Delete
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Services == null)
@@ -123,6 +135,9 @@ namespace WebsiteProject.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
 
+        // POST: Services/Delete
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Services == null)
@@ -131,7 +146,7 @@ namespace WebsiteProject.Controllers
 
             }
             var services = await _context.Services.FindAsync(id);
-            if(services == null)
+            if(services != null)
             {
                 _context.Services.Remove(services);
                 await _context.SaveChangesAsync();

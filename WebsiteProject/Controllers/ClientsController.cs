@@ -10,16 +10,17 @@ using WebsiteProject.Models;
 
 namespace WebsiteProject.Controllers
 {
-    public class ClientsControllers : Controller
+    public class ClientsController : Controller
     {
 
         private readonly ApplicationDbContext _context;
 
-        public ClientsControllers(ApplicationDbContext context)
+        public ClientsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
+        // GET: Clients
         public async Task<IActionResult> Index()
         {
             return _context.Clients != null ?
@@ -27,6 +28,7 @@ namespace WebsiteProject.Controllers
                 Problem("Entity set 'ApplicationDbContext.Clients' is null");
         }
 
+        // GET: Client Information
         public async Task<IActionResult> Information(int? id)
         {
             if (id == null || _context.Clients == null)
@@ -34,14 +36,16 @@ namespace WebsiteProject.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients
+            var clients = await _context.Clients
                 .FirstOrDefaultAsync(m => m.ClientID == id);
-            if (client == null)
+            if (clients == null)
             {
                 return NotFound();
             }
-            return View(client);
+            return View(clients);
         }
+
+        //GET: Clients/Create
         public IActionResult Create()
         {
             var model = new Clients();
@@ -52,21 +56,26 @@ namespace WebsiteProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> Create([Bind("ClientID, FirstName, LastName, PhoneNumber, Email")] Clients client)
+
+        // POST: Clients/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        public async Task<IActionResult> Create([Bind("ClientID, FirstName, LastName, PhoneNumber, Email")] Clients clients)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(client);
+                _context.Add(clients);
                 await _context.SaveChangesAsync();
 
-                ViewData["Message"] = $"{client.LastName}, {client.FirstName} was successfully added";
+                ViewData["Message"] = $"{clients.LastName}, {clients.FirstName} was successfully added";
                 return View();
 
             }
 
-            return View(client);
+            return View(clients);
         }
 
+        //GET: Clients/Edit
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Clients == null)
@@ -74,37 +83,41 @@ namespace WebsiteProject.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients.FindAsync(id);
-            if (client == null)
+            var clients = await _context.Clients.FindAsync(id);
+            if (clients == null)
             {
                 return NotFound();
             }
 
-            return View(client);
+            return View(clients);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> Edit(int id, [Bind("ClientID, FirstName, LastName, PhoneNumber, Email")] Clients client)
+        // POST: Clients/Edit
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        public async Task<IActionResult> Edit(int id, [Bind("ClientID, FirstName, LastName, PhoneNumber, Email")] Clients clients)
         {
-            if (id != client.ClientID)
+            if (id != clients.ClientID)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                _context.Update(client);
+                _context.Update(clients);
                 await _context.SaveChangesAsync();
 
-                TempData["Message"] = $"{client.LastName}, {client.FirstName} was updated successfully";
+                TempData["Message"] = $"{clients.LastName}, {clients.FirstName} was updated successfully";
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(client);
+            return View(clients);
         }
 
+        // GET: Clients/Delete
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Clients == null)
@@ -112,38 +125,42 @@ namespace WebsiteProject.Controllers
                 return NotFound();
             }
 
-            var client = await _context.Clients
+            var clients = await _context.Clients
                 .FirstOrDefaultAsync(m => m.ClientID == id);
-            if (client == null)
+            if (clients == null)
             {
                 return NotFound();
             }
 
-            return View(client);
+            return View(clients);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
 
+
+        // POST: Clients/Delete
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Clients == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Client' is null");
+                return Problem("Entity set 'ApplicationDbContext.Clients' is null");
             }
 
-            Clients client = await _context.Clients.FindAsync(id);
+            Clients clients = await _context.Clients.FindAsync(id);
 
-            if (client == null)
+            if (clients != null)
             {
-                _context.Clients.Remove(client);
+                _context.Clients.Remove(clients);
                 await _context.SaveChangesAsync();
 
-                TempData["Message"] = $"{client.LastName}, {client.FirstName} has been removed";
+                TempData["Message"] = $"{clients.LastName}, {clients.FirstName} has been removed";
             }
             else
             {
-                TempData["Message"] = $"This client has already been removed";
+                TempData["Message"] = "This client has already been removed";
             }
 
             return RedirectToAction(nameof(Index));
